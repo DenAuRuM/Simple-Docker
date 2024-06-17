@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  container_part_5:
+    container_name: container_part_5
+    build: ../part_5/.
+
+  nginx_server:
+    image: nginx
+    ports:
+      - 80:8080
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - container_part_5
